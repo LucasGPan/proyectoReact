@@ -1,7 +1,7 @@
-import React from "react"
-class MiLista extends React.Component{
-    state = {incidencias : [
-        {
+import React,{useState} from "react";
+
+function MiLista (){
+    const [incidencias,setIncidencias] = useState([{
             id_incidencia: 1,
             id_usuario: 23,
             titulo: "Un bebe ha nacido en la oficina",
@@ -68,27 +68,26 @@ class MiLista extends React.Component{
             fecha_registro: "2024-06-06",
             estado: "Abierta",
             ubicacion: "Oficina"
-        }
-    ]}
-    render(){
+        }])
+
         return(
         <div className="lista">
             <ul>
                 {
-                    this.state.incidencias.map((incidencia, index) => (
-                        <li key={index}><strong>ID incidencia:</strong> {incidencia.titulo}<br/>
-                            <strong>Descripcion:</strong> {incidencia.descripcion}<br/>
-                            <strong>Usuario:</strong> {incidencia.id_usuario}<br/>
-                            <strong>Nivel de urgencia:</strong> {incidencia.nivel_urgencia}<br/>
-                            <strong>Fecha de registro:</strong> {incidencia.fecha_registro}<br/>
-                            <strong>Estado:</strong> {incidencia.estado}<br/>
-                            <strong>Ubicacion:</strong> {incidencia.ubicacion}<br/><br/>
+                    incidencias.map((i) => (
+                        <li ><strong>ID i:</strong> {i.titulo},<br/>
+                            <strong>Descripcion:</strong> {i.descripcion},<br/>
+                            <strong>Usuario:</strong> {i.id_usuario},<br/>
+                            <strong>Nivel de urgencia:</strong> {i.nivel_urgencia},<br/>
+                            <strong>Fecha de registro:</strong> {i.fecha_registro},<br/>
+                            <strong>Estado:</strong> {i.estado},<br/>
+                            <strong>Ubicacion:</strong> {i.ubicacion}<br/><br/>
                         </li>
                     ))
-                }
+}
             </ul>
         </div>
         )
-    }
 }
+
 export default MiLista;
