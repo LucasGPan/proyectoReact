@@ -1,6 +1,6 @@
 import React from "react"
 class MiLista extends React.Component{
-    incidencias = [
+    state = {incidencias : [
         {
             id_incidencia: 1,
             id_usuario: 23,
@@ -35,28 +35,60 @@ class MiLista extends React.Component{
             fecha_registro: "2024-06-03",
             estado: "Cerrada",
             ubicacion: "Sala de conferencias"
-
+        },
+        {
+            id_incidencia: 4,
+            id_usuario: 34,
+            titulo: "Falla en el sistema de climatización",
+            descripcion: "El sistema de climatización en la oficina principal no funciona correctamente, se requiere revisión.",
+            categoria: "",
+            nivel_urgencia: "Alta",
+            fecha_registro: "2024-06-04",
+            estado: "Abierta",
+            ubicacion: "Oficina principal"
+        },
+        {
+            id_incidencia: 5,
+            id_usuario: 56,
+            titulo: "Robo de equipo informático",
+            descripcion: "Se ha reportado el robo de un ordenador portátil en la oficina de IT.",
+            categoria: "",
+            nivel_urgencia: "Alta",
+            fecha_registro: "2024-06-05",
+            estado: "Abierta",
+            ubicacion: "Oficina de IT"
+        },
+        {
+            id_incidencia: 6,
+            id_usuario: 78,
+            titulo: "Problemas con el sistema de iluminación",
+            descripcion: "Se ha reportado un fallo en el sistema de iluminación de la oficina, se requiere revisión.",
+            categoria: "",
+            nivel_urgencia: "Media",
+            fecha_registro: "2024-06-06",
+            estado: "Abierta",
+            ubicacion: "Oficina"
         }
-    ]
+    ]}
     render(){
         return(
         <div className="lista">
             <ul>
                 {
-                    this.incidencias.map((incidencia, index)
-                     => <li key={index}>
-                        ID incidencia: {incidencia.titulo}<br/>
-                        Descripcion:{incidencia.descripcion}<br/>
-                        Usuario: {incidencia.id_usuario}<br/>
-                        Nivel de urgencia: {incidencia.nivel_urgencia}<br/>
-                        Fecha de registro: {incidencia.fecha_registro}<br/>
-                        Estado: {incidencia.estado}<br/>
-                        Ubicacion: {incidencia.ubicacion}<br/>
-                        </li>)
+                    this.state.incidencias.map((incidencia, index) => (
+                        <li key={index}><strong>ID incidencia:</strong> {incidencia.titulo}<br/>
+                            <strong>Descripcion:</strong> {incidencia.descripcion}<br/>
+                            <strong>Usuario:</strong> {incidencia.id_usuario}<br/>
+                            <strong>Nivel de urgencia:</strong> {incidencia.nivel_urgencia}<br/>
+                            <strong>Fecha de registro:</strong> {incidencia.fecha_registro}<br/>
+                            <strong>Estado:</strong> {incidencia.estado}<br/>
+                            <strong>Ubicacion:</strong> {incidencia.ubicacion}<br/><br/>
+                        </li>
+                    ))
                 }
             </ul>
         </div>
         )
     }
 }
-export default MiLista
+export default MiLista;
